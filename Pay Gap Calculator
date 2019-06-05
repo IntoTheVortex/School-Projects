@@ -1,0 +1,613 @@
+_author_ = "Amber Shore"
+# Last modified 5/07/2019
+# CIS 122
+# Lab 4
+
+# This program simulates the gender pay gap in America, with percentages from www.aauw.org.
+
+# Input list: user_paycheck, user_sex, user_race
+# Output list: user_paycheck, paycheck_ww, paycheck_bw, paycheck_hlw, paycheck_aw, paycheck_aiw, paycheck_piw,
+#   paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6
+
+
+# Module begin_message
+# Display "This is a simulator demonstrating the gender pay gap in the United States. The percentages used for the
+# calculations come from www.aauw.org."
+# End Module
+
+
+# Function get_user_paycheck
+# Declare Integer num
+# Declare Real user_paycheck
+# While num <= 0
+#     try:
+#         Display "Please enter the amount of your last paycheck, in dollars and cents."
+#         Input user_paycheck
+#         num = user_paycheck
+#     except ValueError:
+#         Display "Please enter a positive number."
+# End While
+# Return user_paycheck
+# End Function
+
+
+# Function get_user_sex
+# This is an input value
+# Declare String user_sex
+# Display "Please enter your sex (male or female)."
+# Input user_sex
+# While toLower(user_sex) != "female" and toLower(user_sex) != "male"
+#   Display "Please enter either 'male' or 'female.'"
+#   Input user_sex
+#   End While
+# Return user_sex
+# End Function
+
+
+# Function Boolean is_valid_integer(user_race)
+# Declare Boolean is_valid
+# is_valid = is user_race a valid integer?
+# Return is_valid
+# End Function
+
+
+# Function get_user_race
+# Declare String user_race
+# Declare Integer user_race_int
+# Declare Boolean is_valid
+# Display "Please enter a number indicating your race. Choose the option that matches most closely."
+# Display "Choose 1 for white/Anglo/Caucasian,"
+# Display "2 for black/African American,"
+# Display "3 for Hispanic/Latina,"
+# Display "4 for Asian/Asian American,"
+# Display "5 for American Indian or Alaska Native,"
+# Display "or 6 for Native Hawaiian/other Pacific Islander."
+# Input user_race
+# is_valid = is_valid_integer(user_race)
+# While not is_valid:
+#     Display "Please enter an integer from 1 through 6."
+#     Input user_race
+#     is_valid = is_valid_integer(user_race)
+#     End While
+# user_race_int = int(user_race)
+# Return user_race_int
+# End Function
+
+# Module calculate_paycheck_male(user_paycheck)
+# Declare Real paycheck_ww
+# Declare Real paycheck_bw
+# Declare Real paycheck_hlw
+# Declare Real paycheck_aw
+# Declare Real paycheck_aiw
+# Declare Real paycheck_piw
+# Set paycheck_ww = .77 * user_paycheck
+# Set paycheck_bw = .61 * user_paycheck
+# Set paycheck_hlw = .53 * user_paycheck
+# Set paycheck_aw = .85 * user_paycheck
+# Set paycheck_aiw = .58 * user_paycheck
+# Set paycheck_piw = .62 * user_paycheck
+# Display "As a man, your paycheck was", your_paycheck, "."
+# Display "If you were a white woman, your paycheck would be", paycheck_ww, "."
+# Display "If you were a black woman, it would be", paycheck_bw, "."
+# Display "If you were a Hispanic or Latina woman, it would be", paycheck_hlw, "."
+# Display "If you were an Asian woman, it would be", paycheck_aw, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck_aiw, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck_piw, "."
+# End Module
+
+# Module calculate_paycheck_ww(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck
+# Set paycheck2 = user_paycheck - (user_paycheck * 0.2078)
+# Set paycheck3 = user_paycheck - (user_paycheck * 0.3117)
+# Set paycheck4 = user_paycheck + (user_paycheck * 0.1039)
+# Set paycheck5 = user_paycheck - (user_paycheck * 0.2468)
+# Set paycheck6 = user_paycheck - (user_paycheck * 0.1948)
+# Call message_ww(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End Module
+
+# Module calculate_paycheck_bw(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck + (user_paycheck * 0.2623)
+# Set paycheck2 = user_paycheck
+# Set paycheck3 = user_paycheck - (user_paycheck * 0.1311)
+# Set paycheck4 = user_paycheck + (user_paycheck * 0.3934)
+# Set paycheck5 = user_paycheck - (user_paycheck * 0.0492)
+# Set paycheck6 = user_paycheck + (user_paycheck * 0.0164)
+# Call message_bw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End Module
+
+# Module calculate_paycheck_hlw(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck + (user_paycheck * 0.4528)
+# Set paycheck2 = user_paycheck + (user_paycheck * 0.1509)
+# Set paycheck3 = user_paycheck
+# Set paycheck4 = user_paycheck + (user_paycheck * 0.6038)
+# Set paycheck5 = user_paycheck + (user_paycheck * 0.0943)
+# Set paycheck6 = user_paycheck + (user_paycheck * 0.1698)
+# Call message_hlw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End Module
+
+# Module calculate_paycheck_aw(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck - (user_paycheck * 0.0941)
+# Set paycheck2 = user_paycheck - (user_paycheck * 0.2824)
+# Set paycheck3 = user_paycheck - (user_paycheck * 0.3765)
+# Set paycheck4 = user_paycheck
+# Set paycheck5 = user_paycheck - (user_paycheck * 0.3176)
+# Set paycheck6 = user_paycheck - (user_paycheck * 0.2706)
+# Call message_aw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End module
+
+# Module calculate_paycheck_aiw(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck + (user_paycheck * 0.3276)
+# Set paycheck2 = user_paycheck + (user_paycheck * 0.0517)
+# Set paycheck3 = user_paycheck - (user_paycheck * 0.0862)
+# Set paycheck4 = user_paycheck + (user_paycheck * 0.4655)
+# Set paycheck5 = user_paycheck
+# Set paycheck6 = user_paycheck + (user_paycheck * 0.0690)
+# Call message_aiw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End Module
+
+# Module calculate_paycheck_piw(user_paycheck)
+# Declare Real paycheck1
+# Declare Real paycheck2
+# Declare Real paycheck3
+# Declare Real paycheck4
+# Declare Real paycheck5
+# Declare Real paycheck6
+# Set paycheck1 = user_paycheck + (user_paycheck * 0.249)
+# Set paycheck2 = user_paycheck - (user_paycheck * 0.0161)
+# Set paycheck3 = user_paycheck - (user_paycheck * 0.1452)
+# Set paycheck4 = user_paycheck + (user_paycheck * 0.3710)
+# Set paycheck5 = user_paycheck - (user_paycheck * 0.0645)
+# Set paycheck6 = user_paycheck
+# Call message_piw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# End Module
+
+# Module message_ww(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As a white woman, your paycheck was", paycheck1, "."
+# Display "If you were a black woman, it would be", paycheck2, "."
+# Display "If you were a Hispanic or Latina woman, it would be", paycheck3, "."
+# Display "If you were an Asian woman, it would be", paycheck4, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck5, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck6, "."
+# End Module
+
+# Module message_bw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As a black/African American woman, your paycheck was", paycheck2, "."
+# Display "If you were a white woman, it would be", paycheck1, "."
+# Display "If you were a Hispanic or Latina woman, it would be", paycheck3, "."
+# Display "If you were an Asian woman, it would be", paycheck4, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck5, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck6, "."
+# End Module
+
+# Module message_hlw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As a Hispanic/Latina woman, your paycheck was", paycheck3, "."
+# Display "If you were a white woman, it would be", paycheck1, "."
+# Display "If you were a black/African American woman, it would be", paycheck2, "."
+# Display "If you were an Asian woman, it would be", paycheck4, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck5, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck6, "."
+# End Module
+
+# Module message_aw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As an Asian woman, your paycheck was", paycheck4, "."
+# Display "If you were a white woman, it would be", paycheck1, "."
+# Display "If you were a black/African American woman, it would be", paycheck2, "."
+# Display "If you were a Hispanic/Latina woman, it would be", paycheck3, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck5, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck6, "."
+# End Module
+
+# Module message_aiw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As an American Indian or Alaska Native woman, your paycheck was", paycheck5, "."
+# Display "If you were a white woman, it would be", paycheck1, "."
+# Display "If you were a black/African American woman, it would be", paycheck2, "."
+# Display "If you were a Hispanic/Latina woman, it would be", paycheck3, "."
+# Display "If you were an Asian woman, it would be", paycheck4, "."
+# Display "If you were a Native Hawaiian or Pacific Islander woman, it would be", paycheck6, "."
+# End Module
+
+# Module message_piw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+# Display "As a Native Hawaiian or Pacific Islander woman, your paycheck was", paycheck6, "."
+# Display "If you were a white woman, it would be", paycheck1, "."
+# Display "If you were a black woman, it would be", paycheck2, "."
+# Display "If you were a Hispanic or Latina woman, it would be", paycheck3, "."
+# Display "If you were an Asian woman, it would be", paycheck4, "."
+# Display "If you were an American Indian or Alaska Native woman, it would be", paycheck5, "."
+# End Module
+
+# Module calculate_paycheck_female(user_paycheck)
+# Call get_user_race
+# If user_race = 1, Then
+#     Call calculate_paycheck_ww(user_paycheck)
+# Else if user_race = 2, Then
+#     Call calculate_paycheck_bw(user_paycheck)
+# Else if user_race = 3, Then
+#     Call calculate_paycheck_hlw(user_paycheck)
+# Else if user_race = 4, Then
+#     Call calculate_paycheck_aw(user_paycheck)
+# Else if user_race = 5, Then
+#     Call calculate_paycheck_aiw(user_paycheck)
+# Else if user_race = 6, Then
+#     Call calculate_paycheck_piw(user_paycheck)
+# Else
+#     Display "Please enter a number for one of the six choices."
+#     Call calculate_paycheck_female(user_paycheck)
+# End Module
+
+
+# Function run_again_prompt
+# Declare String prompt
+# Declare Boolean run_program
+# Display "Would you like to check your paycheck again,"
+# Display "with different conditions? Y/y for yes, any other key for no."
+# Input prompt
+# If toLower(prompt) == "y", Then
+#     Display "Running again"
+#     Set run_program = True
+# Else
+#     Set run_program = False
+# End If
+# Return run_program
+# End Function
+
+
+# Module determine_sex(user_paycheck)
+# Call get_user_sex
+# If toLower(user_sex) == "female", Then
+#     Call calculate_paycheck_female(user_paycheck)
+# Else:
+#     Call calculate_paycheck_male(user_paycheck)
+# End Module
+
+# Module end_message
+# Display "While this is not exactly how the pay gap works, it can help symbolize the broad inequalities that still
+# exist across the country. Thank you for your participation."
+# End Module
+
+# Module main():
+# Declare String user_paycheck
+# Declare Boolean run_program
+# Set run_program = True
+# While run_program == True:
+#     Call begin_message
+#     Set user_paycheck = get_user_paycheck
+#     Call determine_sex(user_paycheck)
+#     Set run_program = run_again_prompt
+# End While
+# end_message
+# End Module
+
+# --------------------------------------------------------------------------------------------------------------
+
+
+def begin_message():
+    print("")
+    print("This is a simulator demonstrating the gender pay gap in the United States. The percentages used"
+          " for the calculations come from www.aauw.org.")
+    print("")
+
+
+def get_user_paycheck():
+    num = 0
+    user_paycheck = 0
+    while num <= 0:
+        try:
+            user_paycheck = float(input("Please enter the amount of your last paycheck, in dollars and cents. "))
+            num = user_paycheck
+        except ValueError:
+            print("Please enter a positive number. ")
+    return user_paycheck
+
+
+def get_user_sex():
+    user_sex = ""
+    print("")
+    user_sex = input("Please enter your sex (male or female). ")
+    while user_sex.lower() != "female" and user_sex.lower() != "male":
+        print("")
+        user_sex = input("Please enter either 'male' or 'female.' ")
+    return user_sex
+
+
+def is_valid_integer(user_race):
+    is_valid = False
+    try:
+        val = int(user_race)
+        is_valid = True
+    except ValueError:
+        is_valid = False
+    return is_valid
+
+
+def get_user_race():
+    user_race = ""
+    user_race_int = 0
+    is_valid = False
+    print("")
+    print("Please enter a number indicating your race. Choose the option that matches most closely.")
+    print("")
+    print("Choose 1 for white/Anglo/Caucasian,")
+    print("2 for black/African American,")
+    print("3 for Hispanic/Latina,")
+    print("4 for Asian/Asian American,")
+    print("5 for American Indian or Alaska Native,")
+    user_race = input("or 6 for Native Hawaiian/other Pacific Islander. ")
+    print("")
+    is_valid = is_valid_integer(user_race)
+    while not is_valid:
+        user_race = input("Please enter an integer from 1 through 6. ")
+        print("")
+        is_valid = is_valid_integer(user_race)
+    user_race_int = int(user_race)
+    return user_race_int
+
+
+def calculate_paycheck_male(user_paycheck):
+    paycheck_ww = 0.0
+    paycheck_bw = 0.0
+    paycheck_hlw = 0.0
+    paycheck_aw = 0.0
+    paycheck_aiw = 0.0
+    paycheck_piw = 0.0
+
+    paycheck_ww = .77 * user_paycheck
+    paycheck_bw = .61 * user_paycheck
+    paycheck_hlw = .53 * user_paycheck
+    paycheck_aw = .85 * user_paycheck
+    paycheck_aiw = .58 * user_paycheck
+    paycheck_piw = .62 * user_paycheck
+    print("")
+    print("As a man, your paycheck was ", user_paycheck, ".", sep="")
+    print("If you were a white woman, your paycheck would be ", round(paycheck_ww, 2), ".", sep="")
+    print("If you were a black woman, it would be ", round(paycheck_bw, 2), ".", sep="")
+    print("If you were a Hispanic or Latina woman, it would be ", round(paycheck_hlw, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck_aw, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck_aiw, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck_piw, 2), ".", sep="")
+
+
+def calculate_paycheck_ww(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck
+    paycheck2 = user_paycheck - (user_paycheck * 0.2078)
+    paycheck3 = user_paycheck - (user_paycheck * 0.3117)
+    paycheck4 = user_paycheck + (user_paycheck * 0.1039)
+    paycheck5 = user_paycheck - (user_paycheck * 0.2468)
+    paycheck6 = user_paycheck - (user_paycheck * 0.1948)
+    message_ww(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def calculate_paycheck_bw(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck + (user_paycheck * 0.2623)
+    paycheck2 = user_paycheck
+    paycheck3 = user_paycheck - (user_paycheck * 0.1311)
+    paycheck4 = user_paycheck + (user_paycheck * 0.3934)
+    paycheck5 = user_paycheck - (user_paycheck * 0.0492)
+    paycheck6 = user_paycheck + (user_paycheck * 0.0164)
+    message_bw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def calculate_paycheck_hlw(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck + (user_paycheck * 0.4528)
+    paycheck2 = user_paycheck + (user_paycheck * 0.1509)
+    paycheck3 = user_paycheck
+    paycheck4 = user_paycheck + (user_paycheck * 0.6038)
+    paycheck5 = user_paycheck + (user_paycheck * 0.0943)
+    paycheck6 = user_paycheck + (user_paycheck * 0.1698)
+    message_hlw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def calculate_paycheck_aw(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck - (user_paycheck * 0.0941)
+    paycheck2 = user_paycheck - (user_paycheck * 0.2824)
+    paycheck3 = user_paycheck - (user_paycheck * 0.3765)
+    paycheck4 = user_paycheck
+    paycheck5 = user_paycheck - (user_paycheck * 0.3176)
+    paycheck6 = user_paycheck - (user_paycheck * 0.2706)
+    message_aw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def calculate_paycheck_aiw(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck + (user_paycheck * 0.3276)
+    paycheck2 = user_paycheck + (user_paycheck * 0.0517)
+    paycheck3 = user_paycheck - (user_paycheck * 0.0862)
+    paycheck4 = user_paycheck + (user_paycheck * 0.4655)
+    paycheck5 = user_paycheck
+    paycheck6 = user_paycheck + (user_paycheck * 0.0690)
+    message_aiw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def calculate_paycheck_piw(user_paycheck):
+    paycheck1 = 0.0
+    paycheck2 = 0.0
+    paycheck3 = 0.0
+    paycheck4 = 0.0
+    paycheck5 = 0.0
+    paycheck6 = 0.0
+    paycheck1 = user_paycheck + (user_paycheck * 0.249)
+    paycheck2 = user_paycheck - (user_paycheck * 0.0161)
+    paycheck3 = user_paycheck - (user_paycheck * 0.1452)
+    paycheck4 = user_paycheck + (user_paycheck * 0.3710)
+    paycheck5 = user_paycheck - (user_paycheck * 0.0645)
+    paycheck6 = user_paycheck
+    message_piw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6)
+
+
+def message_ww(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As a white woman, your paycheck was ", round(paycheck1, 2), ".", sep="")
+    print("If you were a black woman, it would be ", round(paycheck2, 2), ".", sep="")
+    print("If you were a Hispanic or Latina woman, it would be ", round(paycheck3, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck4, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck5, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck6, 2), ".", sep="")
+
+
+def message_bw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As a black/African American woman, your paycheck was ", round(paycheck2, 2), ".", sep="")
+    print("If you were a white woman, it would be ", round(paycheck1, 2), ".", sep="")
+    print("If you were a Hispanic or Latina woman, it would be ", round(paycheck3, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck4, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck5, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck6, 2), ".", sep="")
+
+
+def message_hlw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As a Hispanic/Latina woman, your paycheck was ", round(paycheck3, 2), ".", sep="")
+    print("If you were a white woman, it would be ", round(paycheck1, 2), ".", sep="")
+    print("If you were a black/African American woman, it would be ", round(paycheck2, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck4, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck5, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck6, 2), ".", sep="")
+
+
+def message_aw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As an Asian woman, your paycheck was ", round(paycheck4, 2), ".", sep="")
+    print("If you were a white woman, it would be ", round(paycheck1, 2), ".", sep="")
+    print("If you were a black/African American woman, it would be ", round(paycheck2, 2), ".", sep="")
+    print("If you were a Hispanic/Latina woman, it would be ", round(paycheck3, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck5, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck6, 2), ".", sep="")
+
+
+def message_aiw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As an American Indian or Alaska Native woman, your paycheck was ", round(paycheck5, 2), ".", sep="")
+    print("If you were a white woman, it would be ", round(paycheck1, 2), ".", sep="")
+    print("If you were a black/African American woman, it would be ", round(paycheck2, 2), ".", sep="")
+    print("If you were a Hispanic/Latina woman, it would be ", round(paycheck3, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck4, 2), ".", sep="")
+    print("If you were a Native Hawaiian or Pacific Islander woman, it would be ", round(paycheck6, 2), ".", sep="")
+
+
+def message_piw(paycheck1, paycheck2, paycheck3, paycheck4, paycheck5, paycheck6):
+    print("As a Native Hawaiian or Pacific Islander woman, your paycheck was ", round(paycheck6, 2), ".", sep="")
+    print("If you were a white woman, it would be ", round(paycheck1, 2), ".", sep="")
+    print("If you were a black woman, it would be ", round(paycheck2, 2), ".", sep="")
+    print("If you were a Hispanic or Latina woman, it would be ", round(paycheck3, 2), ".", sep="")
+    print("If you were an Asian woman, it would be ", round(paycheck4, 2), ".", sep="")
+    print("If you were an American Indian or Alaska Native woman, it would be ", round(paycheck5, 2), ".", sep="")
+
+
+def calculate_paycheck_female(user_paycheck):
+    user_race = 0
+    user_race = get_user_race()
+    if user_race == 1:
+        calculate_paycheck_ww(user_paycheck)
+    elif user_race == 2:
+        calculate_paycheck_bw(user_paycheck)
+    elif user_race == 3:
+        calculate_paycheck_hlw(user_paycheck)
+    elif user_race == 4:
+        calculate_paycheck_aw(user_paycheck)
+    elif user_race == 5:
+        calculate_paycheck_aiw(user_paycheck)
+    elif user_race == 6:
+        calculate_paycheck_piw(user_paycheck)
+    else:
+        print("Please enter a number for one of the six choices.")
+        calculate_paycheck_female(user_paycheck)
+
+
+def run_again_prompt():
+    prompt = ""
+    run_program = False
+    print("")
+    print("Would you like to check your paycheck again,")
+    prompt = input("with different conditions? Y/y for yes, any other key for no. ")
+    if prompt.lower() == "y":
+        print("")
+        print("Running again")
+        print("")
+        run_program = True
+    else:
+        run_program = False
+    return run_program
+
+
+def determine_sex(user_paycheck):
+    user_sex = ""
+    user_sex = get_user_sex()
+    if user_sex.lower() == "female":
+        calculate_paycheck_female(user_paycheck)
+    else:
+        calculate_paycheck_male(user_paycheck)
+
+
+def end_message():
+    print("")
+    print("While this is not exactly how the pay gap works, it can help symbolize the broad inequalities that still")
+    print("exist across the country. Thank you for your participation.")
+
+
+def main():
+    user_paycheck = ""
+    run_program = False
+
+    run_program = True
+    while run_program:
+        begin_message()
+        user_paycheck = get_user_paycheck()
+        determine_sex(user_paycheck)
+        run_program = run_again_prompt()
+    end_message()
+
+
+main()
