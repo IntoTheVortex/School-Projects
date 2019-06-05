@@ -1,0 +1,301 @@
+_author_ = "Amber Shore"
+# Last modified 6/3/2019
+# PCC: CIS 122
+# Lab 6
+
+# Input list: number_of_dogs, dog._name, dog._weight
+# Output list: number_of_dogs, dog._name, dog._weight, dog._food_amount
+
+
+# Module begin_message
+# Display "This is a calculator that shows how much dog food you need for your dogs."
+# Display "The amounts provided for dry food are sourced from"
+# Display "www.petmd.com/blogs/nutritionnuggets/dr-coates/"
+# End Module
+def begin_message():
+    print("")
+    print("This is a calculator that shows how much dog food you need for your dogs.")
+    print("The amounts provided for dry food are sourced from")
+    print("www.petmd.com/blogs/nutritionnuggets/dr-coates/")
+    print("")
+
+
+# Class Dog
+#   Private String _name
+#   Private Integer _weight
+#   Private real _food_amount
+#
+#   Public Module input()
+#       _name = input_string("Please enter the dog's name: ")
+#       _weight = (input_integer("Please enter the dog's weight rounded to the nearest pound. "))
+#       _food_amount = calc_food_kibble(_weight)
+#   End Module
+#
+#   Public Function get_name()
+#       Return _name
+#   End Function
+#
+#   Public Function get_weight()
+#       Return _weight
+#   End Function
+#
+#   Public Function get_food_amount()
+#       Return _food_amount
+#   End Function
+#
+# End Class
+class Dog:
+    _name = ""
+    _weight = 0
+    _food_amount = 0.0
+
+    def input(self):
+        self._name = input_string("Please enter the dog's name: ")
+        self._weight = int(input_integer("Please enter the dog's weight rounded to the nearest pound. "))
+        self._food_amount = calc_food_kibble(self._weight)
+
+    def get_name(self):
+        return self._name
+
+    def get_weight(self):
+        return self._weight
+
+    def get_food_amount(self):
+        return self._food_amount
+
+
+# Function get_dog_info
+# Declare Integer number_of_dogs
+# Declare Integer counter
+# Call get_number_of_dogs()
+#
+# Declare Dog dogs[number_of_dogs]
+#
+# While counter <= number_of_dogs,
+#   dog = New Dog()
+#   Call dog.input()
+#   Set dogs[counter] = dog
+#   Set counter = counter + 1
+# End While
+#
+# Return size, number_of_dogs
+# End Function
+def get_dog_info():
+    number_of_dogs = 0
+    counter = 0
+
+    number_of_dogs = get_number_of_dogs()
+
+    dogs = [None for x in range(number_of_dogs)]
+
+    while counter <= number_of_dogs - 1:
+        dog = Dog()
+        dog.input()
+        dogs[counter] = dog
+        counter = counter + 1
+    return dogs, number_of_dogs
+
+
+# Function Integer get_number_of_dogs
+# Declare Integer number_of_dogs
+# Call input_integer("How many dogs do you have?")
+# Return number_of_dogs
+# End Function
+def get_number_of_dogs():
+    number_of_dogs = 0
+
+    number_of_dogs = int(input_integer("How many dogs do you have? "))
+    return number_of_dogs
+
+
+# Function input_string(prompt)
+# Declare String name
+# Input name
+# While True,
+#   If length(name) >= 1, Then
+#       Return name
+#   Else
+#       Display "Please enter something for this dog's name: "
+#       Input name
+def input_string(prompt):
+    name = ""
+
+    name = input(prompt)
+    while True:
+        if len(name) >= 1:
+            return name
+        else:
+            name = input("Please enter something for this dog's name: ")
+
+
+# Function Boolean is_valid_integer(String value)
+# Return True if value is a valid Integer and False otherwise
+# End Function
+def is_valid_integer(value):
+    try:
+        int(value)
+        return True
+    except ValueError:
+        return False
+
+
+# Function Integer input_integer(String prompt)
+# Declare String value_string
+# While True
+# 	Display prompt
+# 	Input value_string
+# 	If is_valid_integer(value_string) Then
+# 		Return value_string
+# 	End If
+# 	Display value_string, "is not a positive whole number!"
+# 	Display "Please try again."
+# End While
+# End Function
+def input_integer(prompt):
+    value_string = ""
+
+    while True:
+        value_string = input(prompt)
+        if is_valid_integer(value_string) and int(value_string) > 0:
+            return value_string
+        print(value_string, "is not a positive whole number!")
+        print("Please try again. ")
+
+
+# Function calc_over_100(weight)
+# Declare Integer weight_over100
+# Declare Real food_amount
+# Set weight_over100 = (weight -100) / 10
+# Set food_amount = 4.5 + (.33 * weight_over100)
+# Return food_amount
+# End Function
+def calc_over_100(weight):
+    weight_over100 = 0
+    food_amount = 0.0
+
+    weight_over100 = (weight - 100) / 10
+    food_amount = 4.5 + (.33 * weight_over100)
+    return food_amount
+
+
+# Function String calc_food_kibble(Integer weight)
+# Declare Real food_amount
+# If weight > 100, Then
+# 	Call calc_over_100(weight)
+# Else if 94 < weight < 110, Then
+# 	Set food_amount = 4.5
+# Else if 84 < weight < 95, Then
+# 	Set food_amount = 4.25
+# Else if 74 < weight < 85, Then
+# 	Set food_amount = 3.75
+# Else if 64 < weight < 75, Then
+# 	Set food_amount = 3.5
+# Else if 54 < weight < 65, Then
+# 	Set food_amount = 3
+# Else if 44 < weight < 55, Then
+# 	Set food_amount = 2.66
+# Else if 34 < weight < 45, Then
+# 	Set food_amount = 2.25
+# Else if 24 < weight < 35, Then
+# 	Set food_amount = 1.75
+# Else if 16 < weight < 25, Then
+# 	Set food_amount = 1.33
+# Else if 12 < weight < 17, Then
+# 	Set food_amount = 1
+# Else if 7 < weight < 13, Then
+# 	Set food_amount = 0.75
+# Else if 4 < weight < 8, Then
+# 	Set food_amount = 0.5
+# Else if weight < 5, Then
+# 	Set food_amount = 0.33
+# Return food_amount
+# End Function
+def calc_food_kibble(weight):
+    food_amount = 0.0
+
+    if weight > 100:
+        food_amount = calc_over_100(weight)
+    elif 94 < weight < 110:
+        food_amount = 4.5  # "4 ½ cups" (100)
+    elif 84 < weight < 95:
+        food_amount = 4.25  # "4 ¼ cups" (90)
+    elif 74 < weight < 85:
+        food_amount = 3.75  # "3 ¾ cups" (80)
+    elif 64 < weight < 75:
+        food_amount = 3.5  # "3 ½ cups" (70)
+    elif 54 < weight < 65:
+        food_amount = 3  # "3 cups" (60)
+    elif 44 < weight < 55:
+        food_amount = 2.66  # "2 ⅔ cups" (50)
+    elif 34 < weight < 45:
+        food_amount = 2.25  # "2 ¼ cups" (40)
+    elif 24 < weight < 35:
+        food_amount = 1.75  # "1 ¾ cups" (30)
+    elif 16 < weight < 25:
+        food_amount = 1.33  # "1 ⅓ cups" (20)
+    elif 12 < weight < 17:
+        food_amount = 1  # "1 cup" (15)
+    elif 7 < weight < 13:
+        food_amount = 0.75  # "¾ cup" (10)
+    elif 4 < weight < 8:
+        food_amount = 0.5  # "½ cup" (6)
+    elif weight < 5:
+        food_amount = 0.33  # "⅓ cup" (3)
+
+    return food_amount
+
+
+# Module info_message(dogs, number_of_dogs)
+# Declare Integer counter
+# While counter < number_of_dogs, Then
+#   Display "For ", dog.get_name(), ", who weighs ", dog.get_weight(), " pounds, ",
+#           "you should feed ", dog.get_food_amount(), " cup(s) of kibble."
+# End For
+# End Module
+def info_message(dogs, number_of_dogs):
+    counter = 0
+
+    while counter < number_of_dogs:
+        dog = dogs[counter]
+        print("")
+        print("For ", dog.get_name(), ", who weighs ", dog.get_weight(), " pounds, ",
+              "you should feed ", dog.get_food_amount(), " cup(s) of kibble.", sep="")
+        print("")
+        counter = counter + 1
+
+
+# Module a_quibble_over_kibble
+# Display “These amounts are appropriate for dogs at a healthy weight with a normal activity level.”
+# Display “Please consult your veterinarian to determine whether your pet’s weight is a healthy one."
+# Display "These amounts should be adjusted if your pet is overweight or underweight.”
+# Display “Thank you for your participation.”
+# End Module
+def a_quibble_over_kibble():
+    print("")
+    print("These amounts are appropriate for dogs at a healthy weight with a normal activity level.")
+    print("Please consult your veterinarian to determine whether your pet’s weight is a healthy one.")
+    print("These amounts should be adjusted if your pet is overweight or underweight.")
+    print("")
+    print("Thank you for your participation.")
+
+
+# Module main
+# Declare Integer number_of_dogs
+# Declare I
+# Call begin_message
+# Call get_dog_info
+# Call get_kibble(dog_weights, dog_names, size)
+# Call a_quibble_over_kibble
+# End Module
+def main():
+    number_of_dogs = 0
+    dogs = [None for x in range(number_of_dogs)]
+
+    begin_message()
+    dogs, number_of_dogs = get_dog_info()
+    info_message(dogs, number_of_dogs)
+    a_quibble_over_kibble()
+
+
+# Call main()
+main()
